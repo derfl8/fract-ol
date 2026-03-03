@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 19:02:49 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/25 15:49:36 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 19:39:36 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		init_window(t_env *env, char *title);
 mlx_color	get_simple_color(int iter);
 int			do_mandelbrot(void);
 int			mandelbrot(double cr, double ci, int max_iter);
+void    	render_mandelbrot(t_env *env);
 int			do_julia(void);
 int			julia(double cr, double ci, int max_iter);
 void		loop_hook(void *param);

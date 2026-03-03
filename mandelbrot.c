@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 15:41:09 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 19:39:49 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	render_mandel_pixel(t_env *env, int x, int y)
 	mlx_set_image_pixel(env->mlx, env->img, x, y, color);
 }
 
-static void	render_mandelbrot(t_env *env)
+void	render_mandelbrot(t_env *env)
 {
 	int	x;
 	int	y;
