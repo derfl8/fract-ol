@@ -6,11 +6,10 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 15:30:10 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 15:41:09 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MacroLibX/includes/mlx.h"
 #include "fractol.h"
 
 int	mandelbrot(double cr, double ci, int max_iter)
