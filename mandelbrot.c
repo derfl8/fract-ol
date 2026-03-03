@@ -6,10 +6,11 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 19:39:49 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 20:21:39 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MacroLibX/includes/mlx.h"
 #include "fractol.h"
 
 int	mandelbrot(double cr, double ci, int max_iter)
@@ -56,6 +57,7 @@ void	render_mandelbrot(t_env *env)
 	int	y;
 
 	y = 0;
+	
 	while (y < 800)
 	{
 		x = 0;
@@ -66,6 +68,8 @@ void	render_mandelbrot(t_env *env)
 		}
 		y++;
 	}
+	mlx_clear_window(env->mlx, env->win, (mlx_color){.a = 0xff});
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 int	do_mandelbrot(void)
@@ -73,10 +77,10 @@ int	do_mandelbrot(void)
 	t_env	env;
 
 	init_window(&env, "Mandelbrot");
-	env.min_x = -2.5;
-	env.max_x = 1.0;
-	env.min_y = -1.5;
-	env.max_y = 1.5;
+	env.min_x = -2.0;
+	env.max_x = 2.0;
+	env.min_y = -2.0;
+	env.max_y = 2.0;
 	render_mandelbrot(&env);
 	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
