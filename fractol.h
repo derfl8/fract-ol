@@ -6,7 +6,7 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 19:02:49 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/24 16:28:28 by abegou           ###   ########.fr       */
+/*   Updated: 2026/02/25 15:49:36 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void		init_window(t_env *env, char *title);
 mlx_color	get_simple_color(int iter);
 int			do_mandelbrot(void);
 int			mandelbrot(double cr, double ci, int max_iter);
-int			do_mandelbrot(void);
 int			do_julia(void);
+int			julia(double cr, double ci, int max_iter);
 void		loop_hook(void *param);
 void		key_hook(int keycode, void *param);
 void		window_hook(int event, void *param);
-void mouse_wheel_hook(int button, void* param);
+void 		mouse_wheel_hook(int button, void* param);
 
 #endif

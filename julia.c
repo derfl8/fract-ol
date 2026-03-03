@@ -12,38 +12,68 @@
 
 #include "fractol.h"
 
-int	do_julia(void)
+int	julia(double cr, double ci, int max_iter)
 {
-	t_env					env;
-	mlx_window_create_info	info;
-	mlx_color				color;
-	int						x;
-	int						y;
+	double	zr;
+	double	zi;
+	double	new_zr;
+	double	new_zi;
+	int		i;
 
-	env.mlx = mlx_init();
-	info.render_target = 0;
-	info.title = "Julia";
-	info.width = 800;
-	info.height = 800;
-	info.is_fullscreen = 0;
-	info.is_resizable = 0;
-	env.win = mlx_new_window(env.mlx, &info);
-	env.img = mlx_new_image(env.mlx, 800, 800);
+	zr = 0.0;
+	zi = 0.0;
+	i = 0;
+	while (i < max_iter)
+	{
+		if (zr * zr + zi * zi > 4.0)
+			break ;
+		new_zr = zr * zr - zi * zi;
+		new_zi = 2 * zr * zi;
+		zr = new_zr + cr;
+		zi = new_zi + ci;
+		i++;
+	}
+	return (i);
+}
+
+static void	render_julia_pixel(t_env *env, int x, int y)
+{
+	double		cr;
+	double		ci;
+	int			iter;
+	mlx_color	color;
+
+	cr = env->min_x + (double)x * (env->max_x - env->min_x) / 800.0;
+	ci = env->min_y + (double)y * (env->max_y - env->min_y) / 800.0;
+	iter = julia(cr, ci, 100);
+	color = get_simple_color(iter);
+	mlx_set_image_pixel(env->mlx, env->img, x, y, color);
+}
+
+static void	render_julia(t_env *env)
+{
+	int	x;
+	int	y;
+
 	y = 0;
 	while (y < 800)
 	{
 		x = 0;
 		while (x < 800)
 		{
-			color.r = (uint8_t)(x * 255 / 800);
-			color.g = (uint8_t)(y * 255 / 800);
-			color.b = 0;
-			color.a = 255;
-			mlx_set_image_pixel(env.mlx, env.img, x, y, color);
+			render_julia_pixel(env, x, y);
 			x++;
 		}
 		y++;
 	}
+}
+
+int	do_julia(void)
+{
+	t_env	env;
+
+	init_window(&env, "Julia");
+	render_julia(&env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_WINDOW_EVENT, window_hook, &env);
 	mlx_add_loop_hook(env.mlx, loop_hook, &env);

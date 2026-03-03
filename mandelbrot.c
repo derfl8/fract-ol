@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/15 20:56:07 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 13:12:03 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	do_mandelbrot(void)
 
 	init_window(&env, "Mandelbrot");
 	render_mandelbrot(&env);
+	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_WINDOW_EVENT, window_hook, &env);
 	mlx_add_loop_hook(env.mlx, loop_hook, &env);
