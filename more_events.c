@@ -6,12 +6,11 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:40:57 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 20:10:18 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 21:18:14 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 static double	zoom_min(double min, double max, double factor)
 {
