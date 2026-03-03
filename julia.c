@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:46:50 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/15 19:47:33 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 15:31:33 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ int	do_julia(void)
 	t_env	env;
 
 	init_window(&env, "Julia");
+	env.min_x = -2.0;
+	env.max_x = 2.0;
+	env.min_y = -2.0;
+	env.max_y = 2.0;
 	render_julia(&env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_WINDOW_EVENT, window_hook, &env);

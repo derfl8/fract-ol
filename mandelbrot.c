@@ -6,10 +6,11 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 13:12:03 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 15:30:10 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MacroLibX/includes/mlx.h"
 #include "fractol.h"
 
 int	mandelbrot(double cr, double ci, int max_iter)
@@ -73,6 +74,10 @@ int	do_mandelbrot(void)
 	t_env	env;
 
 	init_window(&env, "Mandelbrot");
+	env.min_x = -2.5;
+	env.max_x = 1.0;
+	env.min_y = -1.5;
+	env.max_y = 1.5;
 	render_mandelbrot(&env);
 	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);

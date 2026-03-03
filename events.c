@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 19:29:53 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/15 19:53:16 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/03 15:29:28 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	loop_hook(void *param)
 	t_env	*env;
 
 	env = (t_env *)param;
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0 + 1, 0);
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 void	key_hook(int keycode, void *param)
