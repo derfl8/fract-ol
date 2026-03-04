@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 19:02:49 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 19:39:36 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 12:09:42 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_env
     double      max_x;
     double      min_y;
     double      max_y;
+    double      cr;
+    double      ci;
 }   t_env;
 
 int			do_fract(void);
@@ -41,7 +43,7 @@ int			do_mandelbrot(void);
 int			mandelbrot(double cr, double ci, int max_iter);
 void    	render_mandelbrot(t_env *env);
 int			do_julia(void);
-int			julia(double cr, double ci, int max_iter);
+int			julia(int max_iter);
 void		loop_hook(void *param);
 void		key_hook(int keycode, void *param);
 void		window_hook(int event, void *param);

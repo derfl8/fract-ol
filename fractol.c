@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:13:16 by abegou            #+#    #+#             */
-/*   Updated: 2026/02/14 17:35:20 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 11:55:00 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	julia_check(char *char_r, char *char_i)
 {
+	t_env	env;
 	double	float_r;
 	double	float_i;
 
@@ -21,7 +22,11 @@ void	julia_check(char *char_r, char *char_i)
 	float_i = ft_atof(char_i);
 	if ((float_r <= 2.0 && float_r >= -2.0)
 		&& (float_i <= 2.0 && float_r >= -2.0))
+	{
+		env.cr = float_r;
+		env.ci = float_i;
 		do_julia();
+	}
 	else
 		ft_error();
 	return ;

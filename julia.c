@@ -6,14 +6,15 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:46:50 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 15:31:33 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 12:10:33 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	julia(double cr, double ci, int max_iter)
+int	julia(int max_iter)
 {
+	t_env	env;
 	double	zr;
 	double	zi;
 	double	new_zr;
@@ -29,8 +30,8 @@ int	julia(double cr, double ci, int max_iter)
 			break ;
 		new_zr = zr * zr - zi * zi;
 		new_zi = 2 * zr * zi;
-		zr = new_zr + cr;
-		zi = new_zi + ci;
+		zr = new_zr + env.cr;
+		zi = new_zi + env.ci;
 		i++;
 	}
 	return (i);
@@ -38,14 +39,10 @@ int	julia(double cr, double ci, int max_iter)
 
 static void	render_julia_pixel(t_env *env, int x, int y)
 {
-	double		cr;
-	double		ci;
 	int			iter;
 	mlx_color	color;
 
-	cr = env->min_x + (double)x * (env->max_x - env->min_x) / 800.0;
-	ci = env->min_y + (double)y * (env->max_y - env->min_y) / 800.0;
-	iter = julia(cr, ci, 100);
+	iter = julia(100);
 	color = get_simple_color(iter);
 	mlx_set_image_pixel(env->mlx, env->img, x, y, color);
 }
@@ -66,6 +63,8 @@ static void	render_julia(t_env *env)
 		}
 		y++;
 	}
+	mlx_clear_window(env->mlx, env->win, (mlx_color){.a = 0xff});
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 int	do_julia(void)
@@ -78,6 +77,7 @@ int	do_julia(void)
 	env.min_y = -2.0;
 	env.max_y = 2.0;
 	render_julia(&env);
+	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_WINDOW_EVENT, window_hook, &env);
 	mlx_add_loop_hook(env.mlx, loop_hook, &env);
