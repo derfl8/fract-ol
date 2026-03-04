@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 19:29:53 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 14:58:20 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 15:15:56 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ mlx_color	get_simple_color(int iter)
 		color.g = 0;
 		color.b = (uint8_t)(iter * 255 / 50);
 	}
-	else 
+	else
 	{
 		color.g = 0;
 		color.b = 255;
