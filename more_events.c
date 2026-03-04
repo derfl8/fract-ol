@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:40:57 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 13:38:02 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 15:12:50 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static double	zoom_max(double min, double max, double factor)
 	return ((min + max) / 2) + ((max - min) * factor / 2);
 }
 
-void mouse_wheel_hook(int button, void* param)
+void mouse_wheel_hook(int button, void *param)
 {
 	t_env	*env;
 	double	temp;
