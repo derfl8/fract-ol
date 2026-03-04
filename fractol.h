@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 19:02:49 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 13:20:54 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 15:01:08 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void		loop_hook(void *param);
 void		key_hook(int keycode, void *param);
 void		window_hook(int event, void *param);
 void 		mouse_wheel_hook(int button, void* param);
+void        *ft_bzero(void *s, size_t n);
 
 #endif

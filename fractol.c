@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:13:16 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 13:17:49 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 15:01:19 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	julia_check(char *char_r, char *char_i)
 	{
 		env.cr = float_r;
 		env.ci = float_i;
-		env.m_or_j = 1;
 		do_julia();
 	}
 	else

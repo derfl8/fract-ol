@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:46:50 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 13:20:41 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 15:07:10 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	render_julia_pixel(t_env *env, int x, int y)
 int	do_julia(void)
 {
 	t_env	env;
-
+	
+	env.m_or_j = 1;
 	init_window(&env, "Julia");
 	env.min_x = -2.0;
 	env.max_x = 2.0;
