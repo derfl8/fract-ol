@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:40:57 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/03 21:18:14 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 13:08:31 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void mouse_wheel_hook(int button, void* param)
 	temp = zoom_min(env->min_y, env->max_y, factor);
 	env->max_y = zoom_max(env->min_y, env->max_y, factor);
 	env->min_y = temp;
-	render_mandelbrot(env);
+	render(env);
 }

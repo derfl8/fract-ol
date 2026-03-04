@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:28:15 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 11:10:58 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 13:19:13 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	render_mandel_pixel(t_env *env, int x, int y)
 	mlx_set_image_pixel(env->mlx, env->img, x, y, color);
 }
 
-void	render_mandelbrot(t_env *env)
+void	render(t_env *env)
 {
 	int	x;
 	int	y;
@@ -63,7 +63,10 @@ void	render_mandelbrot(t_env *env)
 		x = 0;
 		while (x < 800)
 		{
-			render_mandel_pixel(env, x, y);
+			if (env->m_or_j == 0)
+				render_mandel_pixel(env, x, y);
+			else if (env->m_or_j == 1)
+				render_julia_pixel(env, x, y);
 			x++;
 		}
 		y++;
@@ -76,12 +79,13 @@ int	do_mandelbrot(void)
 {
 	t_env	env;
 
+	env.m_or_j = 0;
 	init_window(&env, "Mandelbrot");
 	env.min_x = -2.0;
 	env.max_x = 2.0;
 	env.min_y = -2.0;
 	env.max_y = 2.0;
-	render_mandelbrot(&env);
+	render(&env);
 	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_WINDOW_EVENT, window_hook, &env);
