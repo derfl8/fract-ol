@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 19:02:49 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 15:20:45 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 16:29:27 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ mlx_color	get_simple_color(int iter);
 int			do_mandelbrot(void);
 int			mandelbrot(double cr, double ci, int max_iter);
 void		render(t_env *env);
-int			do_julia(void);
+int			do_julia(double cr, double ci);
 int			julia(double zr, double zi, double cr, double ci);
 void		render_julia_pixel(t_env *env, int x, int y);
 void		loop_hook(void *param);

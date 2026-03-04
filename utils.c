@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 21:15:48 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 15:17:30 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 16:06:29 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,4 @@ double	ft_atof(char *f_value)
 	}
 	dot_killer(f_value, i, &ret);
 	return (ret * sign);
-}
-
-void	*ft_bzero(void *s, size_t n)
-{
-	unsigned char	*str;
-	size_t			i;
-
-	str = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	return (str);
 }

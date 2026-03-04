@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:46:50 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 15:16:20 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 16:29:44 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	render_julia_pixel(t_env *env, int x, int y)
 	mlx_set_image_pixel(env->mlx, env->img, x, y, color);
 }
 
-int	do_julia(void)
+int	do_julia(double cr, double ci)
 {
 	t_env	env;
 
@@ -56,6 +56,8 @@ int	do_julia(void)
 	env.max_x = 2.0;
 	env.min_y = -2.0;
 	env.max_y = 2.0;
+	env.cr = cr;
+	env.ci = ci;
 	render(&env);
 	mlx_on_event(env.mlx, env.win, MLX_MOUSEWHEEL, mouse_wheel_hook, &env);
 	mlx_on_event(env.mlx, env.win, MLX_KEYDOWN, key_hook, &env);

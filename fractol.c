@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:13:16 by abegou            #+#    #+#             */
-/*   Updated: 2026/03/04 15:32:24 by abegou           ###   ########.fr       */
+/*   Updated: 2026/03/04 16:29:57 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 void	julia_check(char *char_r, char *char_i)
 {
 	t_env	env;
-	double	float_r;
-	double	float_i;
 
-	float_r = ft_atof(char_r);
-	float_i = ft_atof(char_i);
-	if ((float_r <= 2.0 && float_r >= -2.0)
-		&& (float_i <= 2.0 && float_r >= -2.0))
-	{
-		env.cr = float_r;
-		env.ci = float_i;
-		do_julia();
-	}
+	env.cr = ft_atof(char_r);
+	env.ci = ft_atof(char_i);
+	if ((env.cr <= 2.0 && env.cr >= -2.0)
+		&& (env.ci <= 2.0 && env.ci >= -2.0))
+		do_julia(env.cr, env.ci);
 	else
 		ft_error();
 	return ;
